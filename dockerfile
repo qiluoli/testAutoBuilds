@@ -1,17 +1,9 @@
 #
-# Dockerfile for building Ubuntu images
+# Dockerfile for building MySQL images
 #
 
-FROM ubuntu:14.04.5
-MAIMAINTAINER xx <xx@gmail.com>
+FROM mysql:5.7
+MAINTAINER xx <xx@gmail.com>
+
 ENV TZ "Asia/Shanghai"
 ENV TERM xterm
-COPY conf/sources.list /etc/apt/sources.list
-COPY conf/.bash_aliases /root/.bash_aliases
-RUN \
-    apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y build-essential && \
-    rm -rf /var/lib/apt/lists/*
-ENV HOME /root
-WORKDIR /root
